@@ -18,7 +18,7 @@ public class MainClientes {
 		try {
 			
 //		3 -> CREAMOS OBJETO CLIENTE
-			Clientes cliente1 = new Clientes("Julio", "Luque", "Ciudadela");
+			Clientes cliente1 = new Clientes("Luis", "Perez", "Buenos Aires");
 			
 //		4 -> EJECUTAMOS TRANSACCION SQL
 			miSession.beginTransaction();

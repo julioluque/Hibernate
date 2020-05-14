@@ -27,22 +27,22 @@ public class JdbcHibernate {
 		try {
 
 //			MYSQL
-//			System.out.println(".......... INTENTANDO CONECTAR A : " + urlMySql);
-//			Connection conexionMySql = DriverManager.getConnection(urlMySql, userMySql, passwordMySql);
-//			System.out.println(">>>>>>>>>> CONEXION EXITOSA! Tambien a DBeaver");
-//			System.out.println("\n..Transacciones..\n");
-//			System.out.println(".......... CERRANDO LA CONEXION");
-//			conexionMySql.close();
-//			System.out.println("<<<<<<<<<< SE CERRO LA CONEXION!" + urlMySql);
-
-//			ORACLE
-			System.out.println(".......... INTENTANDO CONECTAR A : " + urlOracle);
-			Connection conexionOracle = DriverManager.getConnection(urlOracle, userOracle, passwordOracle);
-			System.out.println(">>>>>>>>>> CONEXION EXITOSA!");
+			System.out.println(".......... INTENTANDO CONECTAR A : " + urlMySql);
+			Connection conexionMySql = DriverManager.getConnection(urlMySql, userMySql, passwordMySql);
+			System.out.println(">>>>>>>>>> CONEXION EXITOSA! Tambien a DBeaver");
 			System.out.println("\n..Transacciones..\n");
 			System.out.println(".......... CERRANDO LA CONEXION");
-			conexionOracle.close();
-			System.out.println("<<<<<<<<<< SE CERRO LA CONEXION!" + urlOracle);
+			conexionMySql.close();
+			System.out.println("<<<<<<<<<< SE CERRO LA CONEXION!" + urlMySql);
+
+//			ORACLE
+//			System.out.println(".......... INTENTANDO CONECTAR A : " + urlOracle);
+//			Connection conexionOracle = DriverManager.getConnection(urlOracle, userOracle, passwordOracle);
+//			System.out.println(">>>>>>>>>> CONEXION EXITOSA!");
+//			System.out.println("\n..Transacciones..\n");
+//			System.out.println(".......... CERRANDO LA CONEXION");
+//			conexionOracle.close();
+//			System.out.println("<<<<<<<<<< SE CERRO LA CONEXION!" + urlOracle);
 
 //			SQLSERVER
 //			System.out.println(".......... INTENTANDO CONECTAR A : " + urlSqlServer);
