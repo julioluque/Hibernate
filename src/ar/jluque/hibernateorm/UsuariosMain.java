@@ -8,7 +8,6 @@ public class UsuariosMain {
 
 	public static void main(String[] args) {
 
-
 		SessionFactory sf = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Usuarios.class)
 				.buildSessionFactory();
 
@@ -16,23 +15,27 @@ public class UsuariosMain {
 
 		try {
 			ss.beginTransaction();
-			Usuarios user = new Usuarios("Julio", "julio.a.luque@gmail.com", "aaabvva");
+			Usuarios user = new Usuarios("Luisito", "luisito@gmail.com", "12345");
 			ss.save(user);
 			ss.getTransaction().commit();
 			System.out.println(">>>>> Commit Save Id : " + user.getId());
-			
+
 			ss.beginTransaction();
-			Usuarios userDB = ss.get(Usuarios.class, user.getId());
+			for (int i = 0; i < user.getId(); i++) {
+				Usuarios userDB = ss.get(Usuarios.class, user.getId());
+				System.out.println("<<<<< Commit Get :" + userDB);
+			}
 			ss.getTransaction().commit();
-			System.out.println("<<<<< Commit Get :" + userDB);
-			
-		} catch(Exception e)
-		{
+
+		} catch (Exception e) {
 			System.out.println("XXXXX Error en la transaccion...");
 			e.printStackTrace();
+
 		} finally {
+			System.out.println("||||| CERRANDO CONEXIONES");
 			ss.close();
 			sf.close();
+
 		}
 	}
 
