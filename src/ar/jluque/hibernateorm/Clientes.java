@@ -21,9 +21,8 @@ public class Clientes {
 
 	@Id
 	@Column(name = "Id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)   // PARA SQL SERVER
-/*	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")          // PRUEBAS PARA ORACLE
-	@SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")		*/
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)   // PARA SQL SERVER
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)	// PARA ORACLE          
 	private int id;
 
 	@Column(name = "Nombre")

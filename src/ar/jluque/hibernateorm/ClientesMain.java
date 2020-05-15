@@ -18,7 +18,7 @@ public class ClientesMain {
 		try {
 			
 //		3 -> CREAMOS OBJETO CLIENTE
-			Clientes cliente1 = new Clientes("Julio", "Luque", "Cuevas");
+			Clientes cliente1 = new Clientes("Julio", "Luque", "Pipino");
 			
 //		4 -> EJECUTAMOS TRANSACCION SQL
 			miSession.beginTransaction();
@@ -29,11 +29,19 @@ public class ClientesMain {
 //		6 -> COMMIT / ROLLBACK 
 			miSession.getTransaction().commit();
 			
-			System.out.println("++ Registro insertado en base de datos...");
+//			System.out.println("+ Registro insertado en base de datos...: " + cliente1.getId());
 		
+			
+//		7 -> LECTURA DE BASE DE DATOS
+			miSession.beginTransaction();
+			Clientes cl = miSession.get(Clientes.class, cliente1.getId());
+			System.out.println(cl);
+			miSession.getTransaction().commit();
+			
 			miSession.close();
 			
 		} catch (Exception e) {
+			System.out.println("XXXXXXXXXX Error en la transaccion");
 			e.printStackTrace();
 			
 		} finally {
