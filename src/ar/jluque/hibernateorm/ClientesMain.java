@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class MainClientes {
+public class ClientesMain {
 
 	public static void main(String[] args) {
 
@@ -31,12 +31,14 @@ public class MainClientes {
 			
 			System.out.println("++ Registro insertado en base de datos...");
 		
+			miSession.close();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			
 		} finally {
-			miSession.close();
+			
+			miFactory.close();
 		}
 
 
