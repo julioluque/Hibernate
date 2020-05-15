@@ -22,10 +22,12 @@ public class UsuariosMain {
 			ss.beginTransaction();
 
 			List<Usuarios> ListaUsuarios = new ArrayList<Usuarios>();
-			for (int i = 1; i <= 3; i++) {
-				ListaUsuarios.add(new Usuarios("Usuario_100" + i, "cuenta." + i + ".jldev@gmail.com", "c1000" + i));
+			for (int i = 1; i <= 400; i++) {
+				int iuser = (int) (Math.random() * 1000);
+				ListaUsuarios.add(new Usuarios("Usuario_A00" + iuser + "_" + i, "cuenta." + i + ".jldev@gmail.com",
+						"A1" + iuser + "Z"));
 			}
-			
+
 			for (Usuarios u : ListaUsuarios)
 				ss.save(u);
 
@@ -35,16 +37,10 @@ public class UsuariosMain {
 			
 //			RECUPERANDO LA LISTA COMPLETA DE LA BASE DE DATOS
 			ss.beginTransaction();
-			List<Usuarios> ListaUsuariosDB = new ArrayList<Usuarios>();
-			for (int i = 1; i < ListaUsuarios.size(); i++) {
-				Usuarios uDB = ss.get(Usuarios.class, i);
-				ListaUsuariosDB.add(uDB);
-			}
-
+			List<Usuarios> ListaUsuariosDB = ss.createQuery("from Usuarios").getResultList();
 			for (Usuarios uDB : ListaUsuariosDB) {
-				System.out.println("<<<<< Get LIST:" + uDB);
+				System.out.println(uDB);
 			}
-
 			ss.getTransaction().commit();
 
 		} catch (Exception e) {
