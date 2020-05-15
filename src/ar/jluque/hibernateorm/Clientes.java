@@ -1,9 +1,11 @@
 package ar.jluque.hibernateorm;
 
-import javax.annotation.Generated;
-import javax.persistence.*;
-
-import org.hibernate.annotations.GeneratorType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * CONEXIONES ESTABLES Y QUERYS
@@ -39,6 +41,7 @@ public class Clientes {
 
 	@Id
 	@Column(name = "Id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)   // PARA SQL SERVER
 	private int id;
 
 	@Column(name = "Nombre")
