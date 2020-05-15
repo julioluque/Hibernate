@@ -21,7 +21,10 @@ public class UsuariosMain {
 			System.out.println(">>>>> Commit Save Id : " + user.getId());
 
 			ss.beginTransaction();
-
+			for (int i = 0; i < user.getId(); i++) {
+				Usuarios userDB = ss.get(Usuarios.class, user.getId());
+				System.out.println("<<<<< Commit Get :" + userDB);
+			}
 			ss.getTransaction().commit();
 
 		} catch (Exception e) {
