@@ -1,4 +1,4 @@
-package ar.jluque.hibernateorm;
+package ar.jluque.hibernate.orm;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +43,16 @@ public class UsuariosMain {
 			}
 			ss.getTransaction().commit();
 
+			
+			ss.beginTransaction();
+			System.out.println("<<<<<< CRITERIA CONSULTAS: OPERADORES LOGICOS - CONSULTA DIRECCION ALIANZA");
+			List <Usuarios> usuariosList = ss.createQuery("from Usuario us where us.email like '%22%' and us.clave like '38%'").getResultList();
+			for (Usuarios usuarios : usuariosList) {
+				System.out.println(usuarios);
+			}
+			
+ss.getTransaction().commit();
+			
 		} catch (Exception e) {
 			System.out.println("XXXXX Error en la transaccion...");
 			e.printStackTrace();

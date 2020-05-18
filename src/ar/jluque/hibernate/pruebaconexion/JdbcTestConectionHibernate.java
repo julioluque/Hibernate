@@ -1,4 +1,4 @@
-package ar.jluque.hibernate;
+package ar.jluque.hibernate.pruebaconexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

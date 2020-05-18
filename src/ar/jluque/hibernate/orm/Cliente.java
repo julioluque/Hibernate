@@ -1,4 +1,4 @@
-package ar.jluque.hibernateorm;
+package ar.jluque.hibernate.orm;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "clientes")
-public class Clientes {
+public class Cliente {
 
 	@Id
 	@Column(name = "Id")
@@ -34,10 +34,10 @@ public class Clientes {
 	@Column(name = "Direccion")
 	private String direccion;
 
-	public Clientes() {
+	public Cliente() {
 	}
 
-	public Clientes(String nombre, String apellidos, String direccion) {
+	public Cliente(String nombre, String apellidos, String direccion) {
 		// Id es autoincremental
 		this.nombre = nombre;
 		this.apellidos = apellidos;

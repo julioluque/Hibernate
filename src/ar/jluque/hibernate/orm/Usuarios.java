@@ -1,4 +1,4 @@
-package ar.jluque.hibernateorm;
+package ar.jluque.hibernate.orm;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
