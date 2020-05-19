@@ -1,5 +1,7 @@
 package ar.jluque.hibernate.orm;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -13,12 +15,20 @@ public class ClientesActualizar {
 		
 		try {
 			
+			ss.beginTransaction();
+			int idRead = 1;
+			Cliente clienteRead = ss.get(Cliente.class, idRead);
+			ss.getTransaction().commit();
+			System.out.println("Consulta realizada por POO");
+			System.out.println(clienteRead);
+			System.out.println("-----------");
+			
 			// Actualizacion usando POO
 			ss.beginTransaction();
-			int clienteId = 16;
-			Cliente cliente =ss.get(Cliente.class, clienteId); 
-			cliente.setNombre("Joaquin");
-			cliente.setApellidos("Borgogna 332");
+			int idUpdate = 16;
+			Cliente clienteUpdate =ss.get(Cliente.class, idUpdate); 
+			clienteUpdate.setNombre("Joaquin");
+			clienteUpdate.setApellidos("Borgogna 332");
 			ss.getTransaction().commit();
 			System.out.println("Registro actualizado por POO");
 			
@@ -34,9 +44,9 @@ public class ClientesActualizar {
 			
 			// Eliminar usando POO
 			ss.beginTransaction();
-			int IdRemove = 12;
-			Cliente cliente2 = ss.get(Cliente.class, IdRemove);
-			ss.remove(cliente2);
+			int IdDelete = 12;
+			Cliente clienteDelete = ss.get(Cliente.class, IdDelete);
+			ss.remove(clienteDelete);
 			ss.getTransaction().commit();
 			System.out.println("Registro eliminado por POO");
 			
